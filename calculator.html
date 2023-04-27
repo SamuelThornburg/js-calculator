@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale1.0">
+	<title>Calculator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			}
+
+		.calculator {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			max-width: 200px;
+			}
+		input, button {
+			font-size: 18px;
+			padding: 10px;
+			}
+		input {
+			grid-column: 1 / span 4;
+			text-align: right;
+			}
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<input type="text" id="display" readonly>
+		<button onclick="onButtonClick('7')">7</button>
+		<button onclick="onButtonClick('8')">8</button>
+		<button onclick="onButtonClick('9')">9</button>
+		<button onclick="onButtonClick('/')">/</button>	
+		<button onclick="onButtonClick('4')">4</button>	
+		<button onclick="onButtonClick('5')">5</button>
+		<button onclick="onButtonClick('6')">6</button>		
+		<button onclick="onButtonClick('*')">*</button>
+		<button onclick="onButtonClick('1')">1</button>
+		<button onclick="onButtonClick('2')">2</button>
+		<button onclick="onButtonClick('3')">3</button>
+		<button onclick="onButtonClick('-')">-</button>
+		<button onclick="onButtonClick('0')">0</button>
+		<button onclick="onButtonClick('.')">.</button>
+		<button onclick="onButtonClick('=')">=</button>
+		<button onclick="onButtonClick('+')">+</button>
+	</div>
+	<script>
+	const display = document.getElementById("display");
+	
+	function onButtonClick(buttonText) {
+		if (buttonText === "=") {
+			try {
+				const result = eval(display.value);
+				display.value = result;
+				} catch (e) {
+				display.value = "Error";
+				}
+				} else {
+				display.value += buttonText;
+				}
+				}
+	</script>
+</body>
+</html>
